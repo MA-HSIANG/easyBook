@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBook</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+
+<body>
+    <div id="app">
+
+
+
+
+        <nav>
+            <div class="header">
+                <div class="header-icon">📓 EasyBook</div>
+
+                <div class="buttons">
+                    <button @click="add" class="button-add">新增筆記</button>
+                    <button @click="del" class="button-clear">清空筆記</button>
+                </div>
+            </div>
+        </nav>
+        <main class="content">
+
+
+            <input v-model="title" :placeholder="placeholder" type="text">
+
+            <textarea v-model="text" :maxlength="200"></textarea>
+
+            <footer>&#169; {{copyrightTime}} MA-HSIANG. All rights reserved.</footer>
+
+        </main>
+        <section>
+
+            <ul class="list-container" v-for="data in loadNotes" :key="data.id">
+                <li>{{data.title}}</li>
+                <span class="btn btn-update" @click="selectNote(data)">🖊</span>
+                <span class="btn btn-delete" @click="btn_delete(data)">🗑</span>
+            </ul>
+
+
+
+        </section>
+
+
+
+
+
+    </div>
+</body>
+<script src="/app.js"></script>
+
+</html>
